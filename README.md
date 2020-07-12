@@ -26,10 +26,34 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   1.6 - Menu IP Addreses para configurarmos a faixa de ip.
   1.7 - Pode deixar a faixa que vem padrão apenas adicionando uma subnet
   1.7.1 - Obs: A subnet deve ter a mesma faixa contida na virtual network
+  1.8 - Clicar em create
 2 - Criar Virtual Network Gateway
   2.1 - No menu de pesquisa digitamos "Virtual network gateways" clicamos em cima do nome
   2.2 - Vamos no menu add
-  2.3 - 
+  2.3 - Da um nome para sua Virtual Network Gateway
+  2.4 - O Gateway type deixa marcado com VPN
+  2.5 - O VPN type deixa marcado com Route-based
+  2.6 - No SKU escolhemos o tipo basic
+  2.7 - O Virtual NetWork escolhemos o que criamos no item 1.
+  2.8 - Clicar em create
+  2.9 - Agora vamos pegar o ip public que foi gerado para que possamos configurar na AWS
+  2.9.1 - Obs: O processo acima pode levar alguns minutos para ser criardo.
+3 -  Agora vamos configura a VPC na nossa conta da AWS
+  3.1 - No menu de pesquisa digitamos "VPC" clicamos em cima do nome
+  3.2 - Dentro da VPC vamos procurar o menu "VIRTUAL PRIVATE NETWORK (VPN) => Customer Gateways"
+  3.3 - Clicar em "Create Customer Gateway" colocamos uma "Name"
+  3.4 - Routing deixamos como "Static"
+  3.5 - IP Address usamos o ip que foi criado no item 2.9, os itens "Certificate ARN, Device" não precisa preencher
+  3.6 - Ainda no menu "VIRTUAL PRIVATE NETWORK (VPN)" entramos na aba "Virtual Private Gateway" clicamos em "Create Virtual Private Gateway"
+  3.7 - Damos um nome e clicamos em criar
+  3.8 - Agora no menu "VIRTUAL PRIVATE NETWORK (VPN) => Site-to-Site VPN Connections" clicamos em Create VPN Connection
+  3.9 - Colocamos o "Name tag" e selecionamos a Virtual Private Gateway, Customer Gateway ID feitas nos itens anterios e o Tunnel Options pode deixar default
+ 4.0 - Criado o item acima vamos fazer o download das configurações no botão Download Configuration" ao lado do Create VPN Connection.
+ 4.1 - Vamos no menu "VIRTUAL PRIVATE CLOUD => Route Tables" e vamos adicionar a faixa de interno criado dentro da Azure no item 1.6
+  
+  
+  
+
   
   
   
