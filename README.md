@@ -75,10 +75,11 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 ```
 1 - Fazer o clone do projeto
     git clone git@github.com:vccfranca/infraestrutura.git
-  1.1 - Para que possamos executar os camandos abaixo, temos de ter um usuário na AWS com permissões no IAM "Identity and Access Management".
-  1.2 - Vamos buscar por "IAM" no grid de busca, na tela do IAM clicamos no menu "Users" em seguida "Add User"
-  1.3 - Escolhemos o nome do usuário, "Access type" como "Programmatic access", clicamos em "Next" adicionamos 
-        um grupo com as permissões "AdministratorAccess, AmazonEKSClusterPolicy", avanço até o final onde vai aparecer a opção de baixar as credencias de acesso.
+  1.1 - Para executar os camandos abaixo, deve ter um usuário na AWS com permissões no IAM "Identity and Access Management".
+  1.2 - Buscar por "IAM" no grid, na tela do IAM clicar no menu "Users" em seguida "Add User"
+  1.3 - Atribuir nome do usuário, "Access type" como "Programmatic access", clicar em "Next" adicionar 
+        um grupo com as permissões "AdministratorAccess, AmazonEKSClusterPolicy", avançar até o final onde vai aparecer 
+        a opção de baixar as credencias de acesso.
     1.3.1 - Obs: Manter as credencias de forma segura e não compartilhar
   1.4 - Escolha um diretorio para criar o arquivo "credentials" a ser usardo na criação do kluster.
     1.4.1 - Ex:
@@ -87,12 +88,12 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
             [nome_profile_para_nos_providers]
             aws_access_key_id = "informação no arquivo gerado no item 1.3"
             aws_secret_access_key = "informação no arquivo gerado no item 1.3"
-  1.5 - Considerando que estamos na raiz do projeto clone, vamos executar o comando:
+  1.5 - Considerando o diretorio do que foi feito clone, executar o comando:
         cd infraestrutura/terraform/eks/
-  1.6 - Com um editor de texto da sua preferencia vamos editar os seguintes arquivos: "provider-k8s.tf, main-k8s.tf"
+  1.6 - Com um editor de texto da sua preferencia editar os seguintes arquivos: "provider-k8s.tf, main-k8s.tf"
     1.6.1 - No arquivo provider-k8s.tf, alterar o caminho da variavel "shared_credentials_file e profile" com os valores criado no item 1.4.2
-    1.6.2 - No arquivo "main-k8s.tf" vamos editar os subnet_ids de acordo com o painel AWS no menu "VPC => VIRTUAL PRIVATE CLOUD => Subnets".        
-  1.7 - Vamos executar os comandos para criar o kluster
+    1.6.2 - No arquivo "main-k8s.tf" editar os subnet_ids de acordo com o painel AWS no menu "VPC => VIRTUAL PRIVATE CLOUD => Subnets".        
+  1.7 - Executar os comandos para criar e destruir o kluster
         $ terraform init
             Obs: Caso tenho problema no comando acima verificar se foi instalado corretamente.
             * [Configurando Terraform](https://learn.hashicorp.com/terraform/getting-started/install)
@@ -101,10 +102,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
                  esperar uma confirmação "yes/no" se deve ou não criar o kluster.
         $ terraform.exe destroy
             Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
-        
-            
-             
-  
+ 
   
 ```
 
