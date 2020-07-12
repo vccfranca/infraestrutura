@@ -1,6 +1,6 @@
 # Tutorial infraestrutura
 
-Montando uma infraestrutura com deployment automatizado com aplicações muilt-cloud.
+Montando uma infraestrutura com deployment automatizado com aplicações multi-cloud.
 
 **Vamos criar conta na AWS e Azure para conseguirmos executar os passos seguintes**
   * [AWS](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
@@ -14,3 +14,8 @@ Montando uma infraestrutura com deployment automatizado com aplicações muilt-c
   * [DOCKER](https://docs.docker.com/get-docker/)
 ***
 
+**Configurando VPN site-to-site para comunicar as aplicações criadas AWS com banco de dados na Azure*
+ 1 - Criar Virtual NetWork Azure
+  1.1 - No menu de pesquisa digitamos Virtual NetWorks
+  1.2 - Vamos no menu add
+  1.3 - Clicar em create new para criar um novo "Resource group"
