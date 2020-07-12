@@ -3,7 +3,7 @@
 Montando uma infraestrutura com deployment automatizado com aplicações muilt-cloud.
 
 **Para conseguir executar as tarefas basta ter as ferramentas abaixo instaladas**
-  *Ferramentas:*
+  *Ferramentas:
     * [Terraform](#Link para instalação: https://www.terraform.io/downloads.html))
     * AWS-Cli
       * Link para instalação: https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-cliv2.html
@@ -13,8 +13,9 @@ Montando uma infraestrutura com deployment automatizado com aplicações muilt-c
       * Link para instalação: https://kubernetes.io/docs/tasks/tools/install-kubectl/
     * DOCKER
       * Link para instalação: https://docs.docker.com/get-docker/
-
+***
 # Criando a estrutura de comunicação entre as Clouds
+
 
 
 
