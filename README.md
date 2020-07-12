@@ -23,6 +23,4 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   1.3 - Clicar em create new para criar um novo "Resource group"
 ```
 
-The idea is an api gateway call the census service and this one call the others to merge a couple of census information.
-
 ***
