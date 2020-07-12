@@ -2,11 +2,11 @@
 
 Montando uma infraestrutura com deployment automatizado com aplicações multi-cloud.
 
-**Vamos criar conta na AWS e Azure para conseguirmos executar os passos seguintes**
+**Criando sua conta na AWS e Azure para executar os passos seguintes**
   * [AWS](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
   * [AZURE](https://azure.microsoft.com/en-us/free/search/?&ef_id=Cj0KCQjw6ar4BRDnARIsAITGzlBZcWUpKQEvvPfJj7WTrwAq9z2m7yYttgZYmOOqKsT-SlC7HBxmibcaAnmQEALw_wcB:G:s&OCID=AID2100014_SEM_Cj0KCQjw6ar4BRDnARIsAITGzlBZcWUpKQEvvPfJj7WTrwAq9z2m7yYttgZYmOOqKsT-SlC7HBxmibcaAnmQEALw_wcB:G:s&dclid=CjgKEAjw6ar4BRDimfbH0p7znRYSJABLJXnin26MZ93jiWKaMa3wUerzn6ovuHkb0njVmse9a15ViPD_BwE)
   
-**Ferramentas utilizadas, clicar no link para instalação**
+**Ferramentas utilizadas: clicar nos links para instalação**
   * [Terraform](https://www.terraform.io/downloads.html)
   * [AWS-Cli](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-cliv2.html)
   * [AZURE-CLI](https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -18,35 +18,35 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 
 ```
 1 - Criar Virtual NetWork Azure
-  1.1 - No menu de pesquisa digitamos "Virtual NetWorks" clicamos em cima do nome
-  1.2 - Vamos no menu add
+  1.1 - No menu de pesquisa digitar "Virtual NetWorks" clicar em cima do nome
+  1.2 - Ir ao menu add
   1.3 - Clicar em "create new" para criar um novo "Resource group"
-  1.4 - Da um nome para sua Virutal NetWork
+  1.4 - Atribuir um nome para sua Virutal NetWork
   1.5 - Escolher a região que ela vai subir.
-  1.6 - Menu IP Addreses para configurarmos a faixa de ip.
-  1.7 - Pode deixar a faixa que vem padrão apenas adicionando uma subnet
+  1.6 - Menu IP Addreses para configurar a faixa de ip.
+  1.7 - Caso queria pode deixar a faixa padrão apenas adicionando uma subnet
   1.7.1 - Obs: A subnet deve ter a mesma faixa contida na virtual network
   1.8 - Clicar em create
 2 - Criar Virtual Network Gateway
-  2.1 - No menu de pesquisa digitamos "Virtual network gateways" clicamos em cima do nome
-  2.2 - Vamos no menu add
-  2.3 - Da um nome para sua Virtual Network Gateway
-  2.4 - O Gateway type deixa marcado com VPN
-  2.5 - O VPN type deixa marcado com Route-based
-  2.6 - No SKU escolhemos o tipo basic
-  2.7 - O Virtual NetWork escolhemos o que criamos no item 1.
+  2.1 - No menu pesquisa digitar "Virtual network gateways" clicar em cima do nome
+  2.2 - Ir ao menu add
+  2.3 - Atribuir um nome para sua Virtual Network Gateway
+  2.4 - O "Gateway" type deixa marcado com VPN
+  2.5 - O "VPN type" deixa marcado com "Route-based"
+  2.6 - No "SKU" escolhemos o tipo "basic"
+  2.7 - O Virtual NetWork selecionar o que foi criado no item 1.
   2.8 - Clicar em create
-  2.9 - Agora vamos pegar o ip public que foi gerado para que possamos configurar na AWS
-  2.9.1 - Obs: O processo acima pode levar alguns minutos para ser criardo.
-3 -  Agora vamos configura a VPC na nossa conta da AWS
-  3.1 - No menu de pesquisa digitamos "VPC" clicamos em cima do nome
-  3.2 - Dentro da VPC vamos procurar o menu "VIRTUAL PRIVATE NETWORK (VPN) => Customer Gateways"
-  3.3 - Clicar em "Create Customer Gateway" colocamos uma "Name"
-  3.4 - Routing deixamos como "Static"
-  3.5 - IP Address usamos o ip que foi criado no item 2.9, os itens "Certificate ARN, Device" não precisa preencher
-  3.6 - Ainda no menu "VIRTUAL PRIVATE NETWORK (VPN)" entramos na aba "Virtual Private Gateway" clicamos em "Create Virtual Private Gateway"
-  3.7 - Damos um nome e clicamos em criar
-  3.8 - Agora no menu "VIRTUAL PRIVATE NETWORK (VPN) => Site-to-Site VPN Connections" clicamos em Create VPN Connection
+  2.9 - Agora copiamos o ip public que foi gerado para que possa ser configurar na AWS
+  2.9.1 - Obs: O processo acima pode levar alguns minutos para ser criado.
+3 - Configura a VPC na nossa conta da AWS
+  3.1 - No menu de pesquisa digitar "VPC" clicar em cima do nome
+  3.2 - Dentro da "VPC" procurar o menu "VIRTUAL PRIVATE NETWORK (VPN) => Customer Gateways"
+  3.3 - Clicar em "Create Customer Gateway" atribuir um "Name"
+  3.4 - Routing continua como "Static"
+  3.5 - "IP Address" usar o ip que foi criado no item 2.9, os itens "Certificate ARN, Device" não precisa preencher
+  3.6 - Ainda no menu "VIRTUAL PRIVATE NETWORK (VPN)" localizar aba "Virtual Private Gateway" clicar em "Create Virtual Private Gateway"
+  3.7 - Atribuir um nome e clicar em criar
+  3.8 - Agora no menu "VIRTUAL PRIVATE NETWORK (VPN) => Site-to-Site VPN Connections" clicar em "Create VPN Connection"
   3.9 - Colocamos o "Name tag" e selecionamos a Virtual Private Gateway, Customer Gateway ID feitas nos itens anterios e o Tunnel Options pode deixar default
  4.0 - Criado o item acima vamos fazer o download das configurações no botão Download Configuration" ao lado do Create VPN Connection.
  4.0.1 - Obs: Na hora de baixar escolha o tipo "Vendor Geneic"
