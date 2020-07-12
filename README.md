@@ -14,8 +14,15 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   * [DOCKER](https://docs.docker.com/get-docker/)
 ***
 
-**Configurando VPN site-to-site para comunicar as aplicações criadas AWS com banco de dados na Azure*
- 1 - Criar Virtual NetWork Azure
+## **Configurando VPN site-to-site para comunicar as aplicações criadas AWS com banco de dados na Azure*
+
+```
+1 - Criar Virtual NetWork Azure
   1.1 - No menu de pesquisa digitamos Virtual NetWorks
   1.2 - Vamos no menu add
   1.3 - Clicar em create new para criar um novo "Resource group"
+```
+
+The idea is an api gateway call the census service and this one call the others to merge a couple of census information.
+
+***
