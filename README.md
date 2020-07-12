@@ -102,7 +102,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
                  esperar uma confirmação "yes/no" se deve ou não criar o kluster.
         $ terraform.exe destroy
             Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
- 
+ 1.8 - Após execução do comando, digitar no grid "Elastic Kubernetes Service" entrar e clicar no menu "Clusters"
   
 ```
 
