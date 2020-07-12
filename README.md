@@ -64,3 +64,14 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
  5.9 - Caso ja tenha 2 instâcias em execução nas 2 clouds, basta executar o comando "ping ip-interno-maquina-destino"
 ```
 ***
+
+## **Criando o cluster kubernets na AWS*
+
+```
+1 - Fazer o clone do projeto
+  1.1 - Entrar no diretorio /terraform
+  
+  
+```
+
+
