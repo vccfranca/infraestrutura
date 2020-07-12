@@ -4,8 +4,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações muilt-c
 
 **Para conseguir executar as tarefas basta ter as ferramentas abaixo instaladas**
   *Ferramentas:*
-    * [Terraform](
-      * Link para instalação: https://www.terraform.io/downloads.html)
+    * [Terraform](#Link para instalação: https://www.terraform.io/downloads.html))
     * AWS-Cli
       * Link para instalação: https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-cliv2.html
     * AZURE-CLI
