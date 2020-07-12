@@ -49,15 +49,20 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   3.8 - Agora no menu "VIRTUAL PRIVATE NETWORK (VPN) => Site-to-Site VPN Connections" clicamos em Create VPN Connection
   3.9 - Colocamos o "Name tag" e selecionamos a Virtual Private Gateway, Customer Gateway ID feitas nos itens anterios e o Tunnel Options pode deixar default
  4.0 - Criado o item acima vamos fazer o download das configurações no botão Download Configuration" ao lado do Create VPN Connection.
+ 4.0.1 - Obs: Na hora de baixar escolha o tipo "Vendor Geneic"
  4.1 - Vamos no menu "VIRTUAL PRIVATE CLOUD => Route Tables" e vamos adicionar a faixa de interno criado dentro da Azure no item 1.6
-  
-  
-  
-
-  
-  
-  
-  
+ 4.1.1 - Obs: Pode conseguir essa infromação voltando ao console da Azure "Virtual NetWorks" ao entrar no virtual network criado na aba Overview 
+              consgue essa informação no campo "Address space"
+5 - Para finalizarmos vamos voltar ao console da Azure e passar as informações da VPN criada na AWS
+ 5.1 - Na busca digitamos "Local NetWork gateways" em seguida selecionamos o botão add
+ 5.2 - Damos um nome, o campo "ID address" vamos pegar no arquivo que fizemos download "Outside IP Addresses => Virtual Private Gateway"
+ 5.3 - Em seguida o campo "Address space" vamos colocar nossa faixa de ip defaul que podemos encontrar na AWS "VIRTUAL PRIVATE CLOUD => Your VPCs => CIDR Blocks"
+ 5.4 - "Resource group" vamos escolher o group criado no item 2.1 e cliacamos em criar
+ 5.6 - Voltando no menu de busca colocamos "Virtual network gateway" entramos na configuração feita, e vamos no menu "Connections"
+ 5.7 - Colocamos um nome, no "Connection Type" selecionamos a opção Site-to-Site(IPsec)
+ 5.8 - O campo "Shared key (PSK)" também vamos encontrar no arquivo de download feito na AWS "Pre-Shared Key" copiamos a chave e adicionamos dentro do campo na Azure
+ 5.9 - Caso ja tenha 2 instâcias em execução nas 2 clouds, basta executar o comando "ping ip-interno-maquina-destino"
+ 
 ```
 
 ***
