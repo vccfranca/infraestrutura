@@ -2,8 +2,8 @@
 
 Montando uma infraestrutura com deployment automatizado com aplicações muilt-cloud.
 
-# Para conseguir executar as tarefas basta ter as ferramentas abaixo instaladas.
-  **Ferramentas:
+**Para conseguir executar as tarefas basta ter as ferramentas abaixo instaladas**
+  *Ferramentas:
     * Terraform
       * Link para instalação: https://www.terraform.io/downloads.html        
     * AWS-Cli
