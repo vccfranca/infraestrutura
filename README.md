@@ -62,7 +62,5 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
  5.7 - Colocamos um nome, no "Connection Type" selecionamos a opção Site-to-Site(IPsec)
  5.8 - O campo "Shared key (PSK)" também vamos encontrar no arquivo de download feito na AWS "Pre-Shared Key" copiamos a chave e adicionamos dentro do campo na Azure
  5.9 - Caso ja tenha 2 instâcias em execução nas 2 clouds, basta executar o comando "ping ip-interno-maquina-destino"
- 
 ```
-
 ***
