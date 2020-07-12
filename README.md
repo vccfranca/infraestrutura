@@ -18,9 +18,22 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 
 ```
 1 - Criar Virtual NetWork Azure
-  1.1 - No menu de pesquisa digitamos Virtual NetWorks
+  1.1 - No menu de pesquisa digitamos "Virtual NetWorks" clicamos em cima do nome
   1.2 - Vamos no menu add
-  1.3 - Clicar em create new para criar um novo "Resource group"
+  1.3 - Clicar em "create new" para criar um novo "Resource group"
+  1.4 - Da um nome para sua Virutal NetWork
+  1.5 - Escolher a região que ela vai subir.
+  1.6 - Menu IP Addreses para configurarmos a faixa de ip.
+  1.7 - Pode deixar a faixa que vem padrão apenas adicionando uma subnet
+  1.7.1 - Obs: A subnet deve ter a mesma faixa contida na virtual network
+2 - Criar Virtual Network Gateway
+  2.1 - No menu de pesquisa digitamos "Virtual network gateways" clicamos em cima do nome
+  2.2 - Vamos no menu add
+  2.3 - 
+  
+  
+  
+  
 ```
 
 ***
