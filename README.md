@@ -1,6 +1,6 @@
 # Tutorial infraestrutura
 
-Montando uma infraestrutura com deployment automatizado com aplicações muilt Cloud.
+Montando uma infraestrutura com deployment automatizado com aplicações muilt-cloud.
 
 # Para conseguir executar as tarefas basta ter as ferramentas abaixo instaladas.
   **Ferramentas:
