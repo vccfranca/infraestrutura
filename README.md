@@ -178,3 +178,18 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
  1.6 - Tem um review das configurações feitas acima, validados clicar Create
  1.7 - Na aba description vai aparecer a informação do DNS que ja deve estar respondendo as aplicações dos servidores selecionados. 
 ```
+## **Atribuindo um DNS*
+```
+1 - Considerando que já existe um registro/dominio de DNS com para configurar deve ser feito os passos abaixo
+ 1.1 - Copiar o DNS gerado pelo Load Balance, entrar na sua conta, ir na aba "DNS" clicar "Criar registro DNS"
+ 1.2 - Atribuir um nome que condiz com sua aplicação ex:"noticias.meudominio.com.br", escolher tipo "CNAME", no campo "DADOS"
+       colar o dns que foi copiado na aba Descripton do Load Balance, clicar em "Criar Registro DNS"
+       ** Obs: O exemplo acima foi baseado no painel da empresa "Task"
+2 - Com o dominio criado voltamos ao console da AWS
+ 2.1 - "EC2 => Load Balancer" na aba listeners clicar em "View/edit rules" que foi criado no passo de criação do "Load Balancer"
+ 2.2 - Na parte superior ao lado da palavra Rules clicar no botão de mais "+", vai aparecer no meio da tela opação de "Insert Rule"
+ 2.3 - clicando nele, vai aparecer opção para apontar o Load Balance para o DNS criado no item 1.2
+ 2.4 - Clicar em "Add Condition => Host header" no campo vamos colocar nosso DNS ex:"noticias.meudominio.com.br"
+ 2.5 - Ao lado no menu "Add action => Forward to" seleciona os targets group criados para as aplicações.
+ 2.6 - Com isso ja  conseguimos acessar aplicação pelo dominio criado e balanceando a carga entre os servidores
+```
