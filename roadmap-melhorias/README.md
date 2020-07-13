@@ -1,7 +1,7 @@
 ## Melhorias a serem implatadas
 
 Na estrutura inicial do projeto peloto foi desenhado com algumas funcionalidades onde as atividades executadas foram de forma manual.
-Agora que ja vimos a dimensão e o esforço a ser gasto, é hora de melhorar com a criação de pipelines automáticas, melhorar arquiteturar de segurança,
+Agora que ja vimos a dimensão e o esforço a ser gasto, é hora de melhorar com a criação de pipelines automáticas, melhorar arquitetura de segurança,
   medir e avaliar o que pode ser feito na estrutura, para otimizar e reduzir os custos inicias.
 ```
 ** Para as aplicações executas em containers:
