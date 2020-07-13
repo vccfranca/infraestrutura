@@ -74,9 +74,9 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 
 ```
 1 - Fazer o clone do projeto
-    ```
+    *```
      git clone git@github.com:vccfranca/infraestrutura.git
-    ```
+    ```*
   1.1 - Para executar os camandos abaixo, deve ter um usuário na AWS com permissões no IAM "Identity and Access Management".
   1.2 - Buscar por "IAM" no grid, na tela do IAM clicar no menu "Users" em seguida "Add User"
   1.3 - Atribuir nome do usuário, "Access type" como "Programmatic access", clicar em "Next" adicionar 
