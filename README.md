@@ -12,6 +12,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   * [AZURE-CLI](https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest)
   * [KUBERNETES](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [GIT](https://git-scm.com/downloads)
+  * [ANSIBLE](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 ***
 
 ## **Configurando VPN site-to-site para comunicar as aplicações criadas AWS com banco de dados na Azure*
@@ -74,7 +75,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 
 ```
 1 - Fazer o clone do projeto
-    git clone git@github.com:vccfranca/infraestrutura.git
+     git clone git@github.com:vccfranca/infraestrutura.git
   1.1 - Para executar os camandos abaixo, deve ter um usuário na AWS com permissões no IAM "Identity and Access Management".
   1.2 - Buscar por "IAM" no grid, na tela do IAM clicar no menu "Users" em seguida "Add User"
   1.3 - Atribuir nome do usuário, "Access type" como "Programmatic access", clicar em "Next" adicionar 
@@ -149,7 +150,34 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
 ## **Configurar as maquinas EC2*
 ```
 1 - Fazer a buscar no grid por ec2, entrar no menu "Instances", identificar quais são as 2 maquinas criadas na etapa "Criando maquinas virtuais EC2"
- 1.1 - Copiar os ips e realizar uma conexão ssh, 
-
+ 1.1 - Copiar os ips editar o arquivo de variaveis e hosts
+       $  cd ..\..\ansible\
+       $ vim host
+          Obs: Substituir os valores "Ip, user, Key_File" pelos que consfigurou na criação dos servidores EC2.
+       $  cd ..\..\ansible\vars
+       $ vim  default.yml
+          Obs: Editar a quantidade de containers que deseja subir, o nome, a imagem que vai utiliza.
+ 1.2 - Executando o ansible
+       $ ansible-playbook -i hosts playbook.yml
+         Obs: Caso de algum problema de conexão verificar o usuário criado, se a porta 22 está liberada no "EC2=>Security Group".
+ 1.3 - Conectar nos servidores e rodar o container
+       $ ssh -i chave.pem/chave.ppk usuario@ip_servidor
+       $ docker run -d -p 80:80 vccf/aplicacao-noticas:v4
 ```
-
+## **Configurar as maquinas EC2*
+```
+1 - Fazer a buscar no grid por ec2, entrar no menu "Instances", identificar quais são as 2 maquinas criadas na etapa "Criando maquinas virtuais EC2"
+ 1.1 - Copiar os ips editar o arquivo de variaveis e hosts
+       $  cd ..\..\ansible\
+       $ vim host
+          Obs: Substituir os valores "Ip, user, Key_File" pelos que consfigurou na criação dos servidores EC2.
+       $  cd ..\..\ansible\vars
+       $ vim  default.yml
+          Obs: Editar a quantidade de containers que deseja subir, o nome, a imagem que vai utiliza.
+ 1.2 - Executando o ansible
+       $ ansible-playbook -i hosts playbook.yml
+         Obs: Caso de algum problema de conexão verificar o usuário criado, se a porta 22 está liberada no "EC2=>Security Group".
+ 1.3 - Conectar nos servidores e rodar o container
+       $ ssh -i chave.pem/chave.ppk usuario@ip_servidor
+       $ docker run -d -p 80:80 vccf/aplicacao-noticas:v4
+```
