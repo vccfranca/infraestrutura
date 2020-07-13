@@ -192,4 +192,5 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
  2.4 - Clicar em "Add Condition => Host header" no campo vamos colocar nosso DNS ex:"noticias.meudominio.com.br"
  2.5 - Ao lado no menu "Add action => Forward to" seleciona os targets group criados para as aplicações.
  2.6 - Com isso ja  conseguimos acessar aplicação pelo dominio criado e balanceando a carga entre os servidores
+**Obs: Esse mesmo Load Balancer podemos ter varios Target groups vinculados a ele assim deixando as aplicações sem acesso externo e mitigando alguns ataques.
 ```
