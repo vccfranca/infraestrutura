@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-aplicacao-notica
+spec:
+  selector:
+    matchLabels:
+      name: aplicacao-notica-pod
+  template:
+    metadata:
+      labels:
+        name: aplicacao-notica-pod
+    spec:  
+      containers:
+        - name: container-aplicacao-cpu
+          image: vccf/aplicacao-noticas:v3
+          resources:
+            requests:
+              memory: "16Mi"
+              cpu: 100m
+            limits:
+              memory: "32Mi"
+              cpu: "200m"  
+          ports:
+            - containerPort: 80
