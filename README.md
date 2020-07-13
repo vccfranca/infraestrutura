@@ -132,17 +132,18 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
     $ terraform desteroy
       Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"   
 ```
-## **Criando *
+## **Executando as aplicações dentro do Kluster*
 ```
 1 - Executar os comando abaixo:
-    $ cd ../../mysql_azure/
-      Obs: O comando acima está considerando que você está no diretório /eks_aws.
-    $ terraform init
-      Obs: Esse comando deve ser executado apenas uma vez
-    $ terraform apply
-      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
-                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
-    $ terraform desteroy
-      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"   
+    $ cd ../../aplicacoes/frontend/
+      Obs: O comando acima está considerando que você está no diretório /ec2_aws.
+    $ kubectl create -f .\deployment-aplicacao.yml
+      Obs: O comando acima cria deployment dentro do kluster
+    $ kubectl autoscale deployment deployment-aplicacao-notica --cpu-percent=50 --min=1 --max=10
+      Obs: Esse comando faz com que o serviço criado seja escalavel, a medida que o uso da CPU passar de 50% por aplicação ele vai 
+       escalar ate chegar em 10 aplicações simultâneas. 
+    $ kubectl create -f .\servico-aplicacao-notica.yml
+      Obs: Como os serviços no kluster não ficam disponivel para acesso externo precisamos criar um serviço de LoadBalance dentro 
+      do Kluster para podermos acessar as aplicações
 ```
 
