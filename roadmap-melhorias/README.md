@@ -8,12 +8,20 @@ Agora que ja vimos a dimensão e o esforço a ser gasto, é hora de melhorar com
      1 - Criar um repositorio privado no docker hub, ou servidor local.
      2 - Configurar o ssl e resgistry privado.
      3 - Analisar e ver a necessidade de melhoria nos arquivos Dorckerfile.
+```
+```
 ** Servidores:
       1 - Avaliar as regras de segurança aplicadas no Security Group, VPC, VPN
       2 - Criar monitoramenta da saúde das aplicações e serviores.
       3 - Estudar melhor forma, mais segura e rapida entre as Clouds
+```
+```
 ** Ambiente CI/CD
-      1 -  Realizar a instalação de uma ferramenta para fazermos o controle total, começando no commit do desenvolvedor até aplicar o build em produção.
+      1 -  Realizar aquisição de mais ferramentas para fazermos o controle total, começando no commit do desenvolvedor até aplicar o build em produção.
+   
+        Commit code => Unit & Integration tests => Deploy to testing => Acceptance tests => Deploy to production environment
+```   
+```      
 ** Custos
       1 - Com os levantamentos acima, ja conseguimos mensurar o quanto podemos reduzir e onde temos de atacar para que isso aconteça de forma gradual.
 ```
