@@ -1,0 +1,2 @@
+[aplicacao]
+ip ansible_user= ansible_password=
