@@ -13,6 +13,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
   * [KUBERNETES](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [GIT](https://git-scm.com/downloads)
   * [ANSIBLE](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+  * [DOCKER](https://docs.docker.com/get-docker/)
 ***
 
 ## **Configurando VPN site-to-site para comunicar as aplicações criadas AWS com banco de dados na Azure*
@@ -164,20 +165,16 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
        $ ssh -i chave.pem/chave.ppk usuario@ip_servidor
        $ docker run -d -p 80:80 vccf/aplicacao-noticas:v4
 ```
-## **Configurar as maquinas EC2*
+## **Criando e Configurando Application Load Balancer*
 ```
-1 - Fazer a buscar no grid por ec2, entrar no menu "Instances", identificar quais são as 2 maquinas criadas na etapa "Criando maquinas virtuais EC2"
- 1.1 - Copiar os ips editar o arquivo de variaveis e hosts
-       $  cd ..\..\ansible\
-       $ vim host
-          Obs: Substituir os valores "Ip, user, Key_File" pelos que consfigurou na criação dos servidores EC2.
-       $  cd ..\..\ansible\vars
-       $ vim  default.yml
-          Obs: Editar a quantidade de containers que deseja subir, o nome, a imagem que vai utiliza.
- 1.2 - Executando o ansible
-       $ ansible-playbook -i hosts playbook.yml
-         Obs: Caso de algum problema de conexão verificar o usuário criado, se a porta 22 está liberada no "EC2=>Security Group".
- 1.3 - Conectar nos servidores e rodar o container
-       $ ssh -i chave.pem/chave.ppk usuario@ip_servidor
-       $ docker run -d -p 80:80 vccf/aplicacao-noticas:v4
+1 - Grid de busca escrever "EC2 => Load Balancers => Create Load Balancer" 
+ 1.1 - Escolher o "Application Load Balancer" atribuir um nome, depois em Availability Zones escolher 3 diferentes clicar em Next
+ 1.2 - Na etapa 2 vai aparecer uma mensagem segurança é pq escolhemos o portocolo http e não https, clicar Next
+ 1.3 - Escolher o mesmo security group configurado nas instâncias de EC2
+ 1.4 - Nessa etapa atribuir um nome para o Target group, as opções "Target type, Protocol, Port, Path" não sofrem alteração, clicar em Next
+       Obs: Essa configuração vai depender muito do tipo de aplicação e do servidor de aplicação instalado.
+ 1.5 - Aqui deve selecionar os servidores onde estão os serviços, caso a porta seja diferente da mostrada alterar e clicar no botão "Add to registered" para
+       que o Load Balancer comece responder aquele serviço assignado, clicar em Next
+ 1.6 - Tem um review das configurações feitas acima, validados clicar Create
+ 1.7 - Na aba description vai aparecer a informação do DNS que ja deve estar respondendo as aplicações dos servidores selecionados. 
 ```
