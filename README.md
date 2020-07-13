@@ -89,7 +89,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
             aws_access_key_id = "informação no arquivo gerado no item 1.3"
             aws_secret_access_key = "informação no arquivo gerado no item 1.3"
   1.5 - Considerando o diretorio do que foi feito clone, executar o comando:
-        cd infraestrutura/terraform/eks/
+        cd infraestrutura/terraform/eks_aws/
   1.6 - Com um editor de texto da sua preferencia editar os seguintes arquivos: "provider-k8s.tf, main-k8s.tf"
     1.6.1 - No arquivo provider-k8s.tf, alterar o caminho da variavel "shared_credentials_file e profile" com os valores criado no item 1.4.2
     1.6.2 - No arquivo "main-k8s.tf" editar os subnet_ids de acordo com o painel AWS no menu "VPC => VIRTUAL PRIVATE CLOUD => Subnets".        
@@ -102,8 +102,54 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
                  esperar uma confirmação "yes/no" se deve ou não criar o kluster.
         $ terraform.exe destroy
             Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
- 1.8 - Após execução do comando, digitar no grid "Elastic Kubernetes Service" entrar e clicar no menu "Clusters"
-  
+ 1.8 - Após execução do comando, digitar no grid "Elastic Kubernetes Service" clicar, entrar menu "Clusters"
 ```
+## **Criando banco de dados Mysql na Azure*
+```
+1 - Para que consiga executar os comandos a seguir ja deve ter feito o login no pc com o Azure-cli.
+2- Executar os comando abaixo:
+    $ cd ../../mysql_azure/
+      Obs: O comando acima está considerando que você está no diretório /eks_aws.
+    $ terraform init
+      Obs: Esse comando deve ser executado apenas uma vez
+    $ terraform apply
+      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
+                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
+    $ terraform desteroy
+      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
+3- Entrando no dashboard da Azure ja consegue visualizar o banco de dados criado e em execução.
+```
+## **Criando as maquinas virtuais EC2 na AWS*
+```
+1 - Executar os comando abaixo:
+    $ cd ../../ec2_aws/
+      Obs: O comando acima está considerando que você está no diretório /nysql_azure.
+    $ terraform init
+      Obs: Esse comando deve ser executado apenas uma vez
+    $ terraform apply
+      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
+                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
+    $ terraform desteroy
+      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"   
+```
+## **Executando as aplicações dentro do Kluster*
+```
+1 - Executar os comando abaixo:
+    $ cd ../../aplicacoes/frontend/
+      Obs: O comando acima está considerando que você está no diretório /ec2_aws.
+    $ kubectl create -f .\deployment-aplicacao.yml
+      Obs: O comando acima cria deployment dentro do kluster
+    $ kubectl autoscale deployment deployment-aplicacao-notica --cpu-percent=50 --min=1 --max=10
+      Obs: Esse comando faz com que o serviço criado seja escalavel, a medida que o uso da CPU passar de 50% por aplicação ele vai 
+       escalar ate chegar em 10 aplicações simultâneas. 
+    $ kubectl create -f .\servico-aplicacao-notica.yml
+      Obs: Como os serviços no kluster não ficam disponivel para acesso externo precisamos criar um serviço de LoadBalance dentro 
+      do Kluster para podermos acessar as aplicações
+```
+## **Configurar as maquinas EC2*
+```
+1 - Fazer a buscar no grid por ec2, entrar no menu "Instances", identificar quais são as 2 maquinas criadas na etapa "Criando maquinas virtuais EC2"
+ 1.1 - Copiar os ips e realizar uma conexão ssh, 
 
+```
 
