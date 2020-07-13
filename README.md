@@ -146,4 +146,10 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
       Obs: Como os serviços no kluster não ficam disponivel para acesso externo precisamos criar um serviço de LoadBalance dentro 
       do Kluster para podermos acessar as aplicações
 ```
+## **Configurar as maquinas EC2*
+```
+1 - Fazer a buscar no grid por ec2, entrar no menu "Instances", identificar quais são as 2 maquinas criadas na etapa "Criando maquinas virtuais EC2"
+ 1.1 - Copiar os ips e realizar uma conexão ssh, 
+
+```
 
