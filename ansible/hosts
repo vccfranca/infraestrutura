@@ -1,2 +1,2 @@
-[aplicacao]
-ip ansible_user= ansible_password=
+[aplicacao_backend]
+ip_servidor ansible_user=ubuntu ansible_private_key_file="local_do_arquivo_.pem"
