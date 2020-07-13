@@ -89,7 +89,7 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
             aws_access_key_id = "informação no arquivo gerado no item 1.3"
             aws_secret_access_key = "informação no arquivo gerado no item 1.3"
   1.5 - Considerando o diretorio do que foi feito clone, executar o comando:
-        cd infraestrutura/terraform/eks/
+        cd infraestrutura/terraform/eks_aws/
   1.6 - Com um editor de texto da sua preferencia editar os seguintes arquivos: "provider-k8s.tf, main-k8s.tf"
     1.6.1 - No arquivo provider-k8s.tf, alterar o caminho da variavel "shared_credentials_file e profile" com os valores criado no item 1.4.2
     1.6.2 - No arquivo "main-k8s.tf" editar os subnet_ids de acordo com o painel AWS no menu "VPC => VIRTUAL PRIVATE CLOUD => Subnets".        
@@ -102,8 +102,47 @@ Montando uma infraestrutura com deployment automatizado com aplicações multi-c
                  esperar uma confirmação "yes/no" se deve ou não criar o kluster.
         $ terraform.exe destroy
             Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
- 1.8 - Após execução do comando, digitar no grid "Elastic Kubernetes Service" entrar e clicar no menu "Clusters"
-  
+ 1.8 - Após execução do comando, digitar no grid "Elastic Kubernetes Service" clicar, entrar menu "Clusters"
 ```
-
+## **Criando banco de dados Mysql na Azure*
+```
+1 - Para que consiga executar os comandos a seguir ja deve ter feito o login no pc com o Azure-cli.
+2- Executar os comando abaixo:
+    $ cd ../../mysql_azure/
+      Obs: O comando acima está considerando que você está no diretório /eks_aws.
+    $ terraform init
+      Obs: Esse comando deve ser executado apenas uma vez
+    $ terraform apply
+      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
+                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
+    $ terraform desteroy
+      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"
+3- Entrando no dashboard da Azure ja consegue visualizar o banco de dados criado e em execução.
+```
+## **Criando as maquinas virtuais EC2 na AWS*
+```
+1 - Executar os comando abaixo:
+    $ cd ../../ec2_aws/
+      Obs: O comando acima está considerando que você está no diretório /nysql_azure.
+    $ terraform init
+      Obs: Esse comando deve ser executado apenas uma vez
+    $ terraform apply
+      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
+                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
+    $ terraform desteroy
+      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"   
+```
+## **Criando *
+```
+1 - Executar os comando abaixo:
+    $ cd ../../mysql_azure/
+      Obs: O comando acima está considerando que você está no diretório /eks_aws.
+    $ terraform init
+      Obs: Esse comando deve ser executado apenas uma vez
+    $ terraform apply
+      Obs: Após a execução do comando ele vai te mostra na tela as informações de tudo que ele irá criar dentro da AWS, ao final vai 
+                 esperar uma confirmação "yes/no" se deve ou não criar o kluster.
+    $ terraform desteroy
+      Obs: O comando destroy vai desfazer tudo o que foi criado no comando appy. "Antes de desfazer ele também espera uma confiração"   
+```
 
